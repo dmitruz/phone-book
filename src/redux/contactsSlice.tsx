@@ -6,11 +6,11 @@ const contactSlice = createSlice({
     name: 'phone',
     initialState: contactsInitialState,
     reducers: {
-        addContact(state, actions) {
+        addContact(state, action) {
             state.items.push(action.payload)
         },
-        deleteContact(state, actions) {
-            state.items = state.items.filter(item => item.id !== actions.payload);
+        deleteContact(state, action) {
+            state.items = state.items.filter(item => item.id !== action.payload);
         },
     },
 });
