@@ -1,0 +1,14 @@
+.phonebook {
+    max-width: 600px;
+    min-width: 320px;
+    margin: 30px auto;
+    /* background-color: rgb(255, 255, 255); */
+    border-radius: 10px;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 15px 20px;
+}

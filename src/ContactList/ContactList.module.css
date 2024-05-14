@@ -1,0 +1,28 @@
+.contactUser {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.contactUser button {
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    padding-left: 10px;
+    transition: all 250ms ease-in-out;
+    outline: none;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+}
+
+button:hover {
+    box-shadow: none;
+    color: white;
+    background: #4e6141;
+}
+
+.user {
+    margin: 0;
+}

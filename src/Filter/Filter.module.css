@@ -1,0 +1,9 @@
+.inputField {
+    height: 50px;
+    background: #ecf0f3;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    text-indent: 20px;
+}
