@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux';
+import { ContactForm } from './components/ContactForm/ContactForm';
+import { ContactList } from './components/ContactList/ContactList';
+import { Filter } from './components/Filter/Filter';
+import styles from './App.module.css'
 
-function App() {
+export const App = () => {
+  const users = useSelector(state => state.contacts.items);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className={styles.phonebook}>
+      <div className={styles.container}>
+        <h1>Phonebook</h1>
+        <ContactForm />
+      </div>
+      <div className={styles.container}>
+        <h2>Contacts</h2>
+        {!users.length ? (
+          <h3>Your phonebook is empty! Add your first contact</h3>
+        ) : (
+          <>
+            <h3>Your phonebook has {users.length} contacts</h3>
+            <Filter />
+            <ContactList />
+          </>
+        )}
+      </div>
+    </section>
   );
 }
 
-export default App;
