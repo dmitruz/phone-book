@@ -4,19 +4,28 @@ import { nanoid } from "@reduxjs/toolkit";
 import { addContact } from "../../redux/contactsSlice";
 import styles from './ContactForm.module.css';
 
-export const ContactForm: React.FC = () => {
+interface ContactFormProps { }
+
+export const ContactForm: React.FC<ContactFormProps> = () => {
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const target = e.target as typeof e.target & {
+            elements: {
+                name: { value: string };
+                number: { value: string };
+            };
+        };
 
         const newObj = {
             id: nanoid(),
-            name: e.target.elements.name.value,
-            number: e.target.elements.number.value,
+            name: target.elements.name.value,
+            number: target.elements.number.value,
         };
         dispatch(addContact(newObj));
-        e.target.reset();
+        e.currentTarget.reset();
     };
 
     return (

@@ -2,10 +2,11 @@ import { useSelector } from 'react-redux';
 import { ContactForm } from './components/ContactForm/ContactForm';
 import { ContactList } from './components/ContactList/ContactList';
 import { Filter } from './components/Filter/Filter';
+import { RootState } from './redux/store';
 import styles from './App.module.css'
 
 export const App = () => {
-  const users = useSelector(state => state.contacts.items);
+  const users = useSelector((state: RootState) => state.contacts.items);
   return (
     <section className={styles.phonebook}>
       <div className={styles.container}>

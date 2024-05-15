@@ -1,11 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface FilterState {
+    filterValue: string;
+}
+
+const filterInitialState: FilterState = { filterValue: '' };
 
 const filterSlice = createSlice({
     name: 'filter',
-    initialState: '',
+    initialState: filterInitialState,
     reducers: {
-        filterContacts(state, { payload }) {
-            return payload;
+        filterContacts(state, action: PayloadAction<string>) {
+            state.filterValue = action.payload;
         },
     },
 });

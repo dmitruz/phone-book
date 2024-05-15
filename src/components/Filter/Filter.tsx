@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filterContacts } from "../../redux/filterSlice";
 import styles from './Filter.module.css';
+import { RootState } from "../../redux/store";
 
-export const Filter = () => {
+interface FilterProps { }
+
+export const Filter: React.FC<FilterProps> = () => {
     const dispatch = useDispatch();
-    const filter = useSelector(state => state.filter);
+    const filter = useSelector((state: RootState) => state.filter.filterValue);
 
-    const showFilteredContacts = e => {
+    const showFilteredContacts = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(filterContacts(e.target.value));
     };
 

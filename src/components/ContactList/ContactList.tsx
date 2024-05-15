@@ -1,13 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contactsSlice";
+import { RootState } from '../../redux/store'
 import styles from './ContactList.module.css';
 
-export const ContactList: React.FC = () => {
+interface ContactListProps { }
+
+interface Contact {
+    id: string;
+    name: string;
+    number: string;
+}
+
+export const ContactList: React.FC<ContactListProps> = () => {
     const dispatch = useDispatch();
 
-    const contacts = useSelector(state => {
+    const contacts: Contact[] = useSelector((state: RootState) => {
+        const filterValue = state.filter.filterValue.toLowerCase(); // Accessing filterValue
         return state.contacts.items.filter(item =>
-            item.name.toLowerCase().trim().includes(state.filter.toLowerCase().trim())
+            item.name.toLowerCase().includes(filterValue)
         );
     });
 
