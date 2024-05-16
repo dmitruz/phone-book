@@ -7,7 +7,7 @@
 
 .form {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-wrap: nowrap;
 }
 
@@ -45,3 +45,6 @@ button:hover {
     color: white;
     background: #4e6141;
 }
+ b {
+    padding-right: 20px;
+ }

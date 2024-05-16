@@ -17,10 +17,10 @@
     padding: 10px 20px;
 }
 
-button:hover {
+.contactUser button:hover {
     box-shadow: none;
     color: white;
-    background: #4e6141;
+    background: #eb4141;
 }
 
 .user {
